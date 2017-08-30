@@ -1,15 +1,13 @@
-# README
+# Venom10
+
+IOU/payment management app for groups. Users can create and join groups, track group expenses, and coordinate through group chat.
 
 Collaborative pair-programming project by
-[Nick Beaujean](https://github.com/niekvenlo)
-[Leo Knauth](https://github.com/robinleoknauth)
-Mike Salisbury https://github.com/MikeSalisbury
-[Mike Salisbury](https://github.com/MikeSalisbury)
+[Nick Beaujean](https://github.com/niekvenlo "Nick's Github")
+[Leo Knauth](https://github.com/robinleoknauth "Leo's Github")
+[Mike Salisbury](https://github.com/MikeSalisbury "Mike's Github")
 
-Things you may want to cover:
+Built on:
 
-* Ruby version = 2.4.1
-
+* Ruby 2.4.1
 * Rails 5.1
-
-* Users can join groups, 
