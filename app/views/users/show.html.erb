@@ -1,2 +1,80 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+  <div class="col">
+    <h1>Barbeque</h1>
+  </div>
+  </div>
+<div class="row">  
+  <div class="col-sm">
+    <h2>Payments</h2>
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="d-none d-md-block">#</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Payed by</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="d-none d-md-block">1</th>
+          <td>Paper plates</td>
+          <td>3.00</td>
+          <td>Emily</td>
+        </tr>
+        <tr class="hidden-md">
+          <th scope="row" class=" d-none d-md-block">2</th>
+          <td>Meats</td>
+          <td>12.00</td>
+          <td>Lisa</td>
+        </tr>
+      </tbody>
+    </table>
+    <%= form_with url: '/' do |form| %>
+      <%# replace url: '/' with model: Payment.new %>
+      <%= form.label :description, "Payment description", class: "sr-only col-8 control-label" %><!--
+      --><%= form.label :amount, "Amount", class: "sr-only col-4 control-label" %>
+      <%= form.text_field :description, class: "col-8" %><!--
+      --><%= form.text_field :amount, class: "col-4" %><!--
+      --><%= form.submit "Send", class: "col-3 btn btn-secondary" %>
+    <% end %>
+    
+  </div>
+  <div class="col-sm">
+    <h2>Messages</h2>
+    
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th class="d-none d-md-block">#</th>
+          <th>Message</th>
+          <th>Sender</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="d-none d-md-block">1</th>
+          <td>Do we still need blankets?</td>
+          <td>Ginger</td>
+          <td>Two hours ago</td>
+        </tr>
+        <tr class="hidden-md">
+          <th scope="row" class=" d-none d-md-block">2</th>
+          <td>I got steaks!</td>
+          <td>Lisa</td>
+          <td>15 minutes ago</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group">
+      <%= form_with url: '/' do |form| %>
+        <%# replace url: '/' with model: Comment.new %>
+        <%= form.label :content, "Message to send", class: "sr-only col control-label" %>
+        <%= form.text_field :content, class: "col" %>
+        <%= form.submit "Send", class: "col-3 btn btn-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
