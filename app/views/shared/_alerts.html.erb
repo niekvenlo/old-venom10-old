@@ -1,15 +1,13 @@
 <!--ALERT-->
-<% alert_type = { "info" => "alert-info" } %>
-<%# flash.each do |name, msg| -%>
-
-<%# DEBUG %>
-<% name, msg = "info", "Example message, successful login or something" %>
-
-  <div class="alert <%= alert_type[name] %> alert-dismissible fade show" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <%= msg %>
-  </div>
-<%# end %>
+<div id="alerts">
+  <% alert_type = { "info" => "alert-info" } %>
+  <% flash.each do |name, msg| -%>
+    <div class="alert <%= alert_type[name] %> alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= msg %>
+    </div>
+  <% end %>
+</div>
 <!--/ALERT-->
