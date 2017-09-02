@@ -1,0 +1,10 @@
+// Re-render form partial as a string, and replace content of user_edit_form div
+$("#user_edit_form").html("<%= j(render 'form') %>")
+
+// Add 'is-invalid' CSS class to elements that Rails marks as 'field_with_errors'
+Array.from(document.getElementsByClassName('field_with_errors')).forEach( element => element.firstChild.className += ' is-invalid')
+
+// Error alerts
+<% @user.errors.full_messages.each do |msg| %>
+  alert("<%= msg %>", "warning")
+<% end %>

@@ -1,0 +1,19 @@
+Create Account
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/errors', object: @user %>
+  
+  <%= f.label :name %><br>
+  <%= f.text_field :name, placeholder: "name" %><br>
+  
+  <%= f.label :nickname %><br>
+  <%= f.text_field :nickname, placeholder: "nickname" %><br>
+  
+  <%= f.label :about_me %><br>
+  <%= f.text_area :about_me, placeholder: "about me" %><br>
+  
+  <%= f.label :email %><br>
+  <%= f.email_field :email, placeholder: "venom@email.com" %>
+  
+  <%= f.submit "Save changes" %>
+<% end %>

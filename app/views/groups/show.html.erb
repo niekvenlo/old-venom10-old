@@ -29,8 +29,8 @@
       <%# replace url: '/' with model: Payment.new %>
       <%= form.label :description, "Payment description", class: "sr-only col-8 control-label" %><!--
       --><%= form.label :amount, "Amount", class: "sr-only col-4 control-label" %>
-      <%= form.text_field :description, class: "col-7" %><!--
-      --><%= form.text_field :amount, class: "col-3" %><!--
+      <%= form.text_field :description, placeholder: "description", class: "col-7" %><!--
+      --><%= form.text_field :amount, placeholder: "amount", class: "col-3" %><!--
       --><%= form.submit "Send", class: "col-2 btn btn-secondary" %>
     <% end %>
     
@@ -66,7 +66,7 @@
       <%= form_with url: '/' do |form| %>
         <%# replace url: '/' with model: Comment.new %>
         <%= form.label :content, "Message to send", class: "sr-only col control-label" %>
-        <%= form.text_field :content, class: "col-10" %><!--
+        <%= form.text_field :content, placeholder: "message content", class: "col-10" %><!--
         --><%= form.submit "Send", class: "col-2 btn btn-secondary" %>
       <% end %>
     </div>

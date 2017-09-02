@@ -17,4 +17,5 @@ class User < ApplicationRecord
       self.payments.sum('amount_cents')
     end
   end
+  
 end
