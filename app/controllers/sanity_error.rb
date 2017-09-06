@@ -1,0 +1,2 @@
+class SanityError < StandardError
+end

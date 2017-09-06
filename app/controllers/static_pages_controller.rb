@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def login_hack
+    redirect_to url_for(controller: :sessions, action: :new)
+  end
 end
