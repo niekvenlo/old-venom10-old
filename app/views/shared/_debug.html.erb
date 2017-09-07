@@ -1,7 +1,11 @@
-<%= debug params %>
+<pre id="debug" style="background-color: #ddd; display: inline-block">
+  <%= debug params %>
 
-<%= session[:id] %>
-<br>
-<%= session[:id_created_at] %>
-<br>
-<%= cookies.encrypted[:session_token] %>
+  session[:id] | <%= session[:id] %>
+  session[:id_created_at] | <%= session[:id_created_at] %>
+  cookies.encrypted[:session_token] | <%= cookies.encrypted[:session_token] %>
+
+  <%= "Environment: #{Rails.env}" %>
+  Environment variables: <%= ENV["GITHUB_SECRET"][0] == "a" %>
+
+</pre>

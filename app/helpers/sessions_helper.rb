@@ -3,6 +3,7 @@ module SessionsHelper
   def current_user
     if session[:id]
       @current_user ||= User.find_by(id: session[:id])
+
     elsif token = cookies.encrypted[:session_token]
       session = Session.find_by(token: token)
       # return nil if session.created_at < Time.current - 1.day

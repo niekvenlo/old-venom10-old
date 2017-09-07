@@ -24,16 +24,16 @@ class SessionsController < ApplicationController
       end
     else
       @user = User.new(name: user_name, email: user_email, provider_column => provider_uid)
-      if @user.save && create_cookies_and_session
+      if @user.save #&& create_cookies_and_session
         redirect_to @user, success: "Account created succesfully"
       else
-        redirect_to :root, warning: "Failed to log in"
+        redirect_to :root, warning: "We were unable to create an account"
       end
     end
   end
 
   def destroy
     log_out
-    redirect_to :root, info: "You have logged out"
+    redirect_to :root, success: "You have logged out"
   end
 end
