@@ -2,8 +2,11 @@ class GroupsController < ApplicationController
   include SessionsHelper
 
   def show
-    @group = Group.find(params[:id])
-    # @group = current_user.groups.find(params[:id])
+    if current_user
+      @group = current_user.groups.find(params[:id])
+    else
+      redirect_to :root
+    end
   end
 
   def edit
