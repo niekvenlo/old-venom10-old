@@ -24,7 +24,7 @@ school.users << [bob, joe,anne]
 bbq.users << [joe,bob,anne]
 # bbq.admin(joe)
 
-contents = ["Woopidoopidubdub", "Hello fellas!", "Who is you daddy?", "show me the money Lewbowski!", "Oh it is somewhere down there, let me have another look", "why me?", "42 is the meaning of life because the ASCII character number 42 is *, which means the meaning of life is anything you want it to be.", "English mootherf****r, do you speak it?"]
+contents = ["Woopidoopidubdub", "Hello fellas!", "Who is you daddy?", "show me the money Lewbowski!", "Oh it is somewhere down there, let me have another look", "why me?", "42 is the meaning of life because the ASCII character number 42 is *, which means the meaning of life is anything you want it to be.", "English mootherf****r, do you speak it?", "the king stay the king"]
 
 (5+rand(5)).times do
     Message.create(user: bbq.users.sample, group: bbq, content: contents.sample)
