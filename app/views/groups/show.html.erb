@@ -8,10 +8,10 @@
     </h1>
   </div>
   </div>
-<div class="row">  
+<div class="row">
   <div class="col-sm">
     <h2>Payments</h2>
-    
+
     <table class="table table-hover">
       <thead>
         <tr>
@@ -19,6 +19,7 @@
           <th>Description</th>
           <th>Amount</th>
           <th>Payed by</th>
+          <th>Time</th>
         </tr>
       </thead>
       <tbody>
@@ -33,11 +34,11 @@
       --><%= form.text_field :amount, placeholder: "amount", class: "col-3" %><!--
       --><%= form.submit "Send", class: "col-2 btn btn-secondary" %>
     <% end %>
-    
+
   </div>
   <div class="col-sm">
     <h2>Messages</h2>
-    
+
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
@@ -48,18 +49,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row" class="d-none d-md-block">1</th>
-          <td>Do we still need blankets?</td>
-          <td>Ginger</td>
-          <td>Two hours ago</td>
-        </tr>
-        <tr class="hidden-md">
-          <th scope="row" class=" d-none d-md-block">2</th>
-          <td>I got steaks!</td>
-          <td>Lisa</td>
-          <td>15 minutes ago</td>
-        </tr>
+        <%= render @group.messages %>
       </tbody>
     </table>
     <div class="form-group">

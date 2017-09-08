@@ -3,4 +3,5 @@
           <td><%= payment.description %></td>
           <td><%= payment.amount %></td>
           <td><%= payment.user.name %></td>
+          <td><%= time_ago_in_words(payment.created_at) %></td>
         </tr>

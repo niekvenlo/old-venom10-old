@@ -16,7 +16,7 @@ class Group < ApplicationRecord
     User.find self.admin_id
   end
 
-  def admin=(user)
+  def admin= user
     self.admin_id = user.id
   end
 

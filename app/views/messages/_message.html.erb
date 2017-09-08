@@ -1,0 +1,6 @@
+        <tr>
+          <th scope="row" class="d-none d-md-block">1</th>
+          <td><%= message.content %></td>
+          <td><%= message.user.name %></td>
+          <td><%= time_ago_in_words(message.created_at) %></td>
+        </tr>

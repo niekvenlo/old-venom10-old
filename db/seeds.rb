@@ -15,14 +15,24 @@ bob = User.create(name: "Robert", nickname: "Bob", email: "bob@g.com")
 joe = User.create(name: "Joseph", nickname: "Joe", email: "joe@g.com")
 anne = User.create(name: "Anne", nickname: "Annie", email: "annie@g.com")
 rocky = User.create(name: "Raquel", nickname: "Rocky", email: "rocky@g.com")
-bbq = Group.create(name: "BBQ", currency_type: "Pony", admin_id: 1)
-school = Group.create(name: "School", currency_type: "Spoon", admin_id: 2)
+bbq = Group.create(name: "BBQ", currency_type: "Pony", admin: bob)
+school = Group.create(name: "School", currency_type: "Spoon", admin: anne)
 lonely = Group.create(name: "Loneliness")
 mike.groups << bbq
 school.users << [bob, joe,anne]
 # school.admin(bob)
 bbq.users << [joe,bob,anne]
 # bbq.admin(joe)
+
+contents = ["Woopidoopidubdub", "Hello fellas!", "Who is you daddy?", "show me the money Lewbowski!", "Oh it is somewhere down there, let me have another look", "why me?", "42 is the meaning of life because the ASCII character number 42 is *, which means the meaning of life is anything you want it to be.", "English mootherf****r, do you speak it?"]
+
+(5+rand(5)).times do
+    Message.create(user: bbq.users.sample, group: bbq, content: contents.sample)
+end
+
+(5+rand(5)).times do
+    Message.create(user: school.users.sample, group: school, content: contents.sample)
+end
 
 (5+rand(5)).times do
     Payment.create(user: mike, group: bbq, amount: 1+rand(50)+rand(50), description: DESCRIPTIONS.sample)

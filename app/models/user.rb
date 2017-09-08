@@ -8,7 +8,7 @@ class User < ApplicationRecord
   before_save { self.email.downcase! }
 
   validates :name, presence: true, length: { minimum: 2 }, format: { with: /\A[a-zA-Z]+[a-zA-Z -]*[a-zA-Z]+\z/,
-    message: "only letters are allowed" }
+    message: "should contain letters only" }
   #validates :nickname, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   #email supplied by our wonderful partners google and github, we do not need to check formatting.

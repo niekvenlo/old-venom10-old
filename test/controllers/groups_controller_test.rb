@@ -2,7 +2,7 @@ require 'test_helper'
 
 class GroupsControllerTest < ActionDispatch::IntegrationTest
 
-  test "should get show" do
+  test "should not show groups for logged out users" do
     get group_url(Group.all.sample)
     assert_response 302
   end
