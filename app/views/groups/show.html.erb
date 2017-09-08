@@ -15,7 +15,6 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th class="d-none d-md-block">#</th>
           <th>Description</th>
           <th>Amount</th>
           <th>Payed by</th>
@@ -26,23 +25,35 @@
         <%= render @group.payments %>
       </tbody>
     </table>
-    <%= form_with url: '/' do |form| %>
+
+    <%#= form_with(url: user_payments_path, method: :post, local: true) do |form| %>
       <%# replace url: '/' with model: Payment.new %>
-      <%= form.label :description, "Payment description", class: "sr-only col-8 control-label" %><!--
-      --><%= form.label :amount, "Amount", class: "sr-only col-4 control-label" %>
-      <%= form.text_field :description, placeholder: "description", class: "col-7" %><!--
-      --><%= form.text_field :amount, placeholder: "amount", class: "col-3" %><!--
-      --><%= form.submit "Send", class: "col-2 btn btn-secondary" %>
+    <% @group.users.each do |user| %>
+    <!-- helper conditional to check user is member of group -->
+      <% if current_user == user %>
+        <%= form_for([user, user.payments.new]) do |form| %>
+          <%= form.label :description, "Payment description", class: "sr-only col-8 control-label" %>
+          <%= form.text_field :description, placeholder: "description", class: "col-7" %>
+
+          <%= form.label :amount, "Amount", class: "sr-only col-4 control-label" %>
+          <%= form.text_field :amount, placeholder: "amount", class: "col-3" %>
+
+          <%= form.hidden_field :group_id, value: @group.id %>
+
+          <%= form.submit "Send", class: "col-2 btn btn-secondary" %>
+        <%end %>
+      <% end %>
     <% end %>
 
   </div>
+
+
   <div class="col-sm">
     <h2>Messages</h2>
 
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
-          <th class="d-none d-md-block">#</th>
           <th>Message</th>
           <th>Sender</th>
           <th>Time</th>
@@ -53,12 +64,21 @@
       </tbody>
     </table>
     <div class="form-group">
-      <%= form_with url: '/' do |form| %>
+      <%#= form_with model: @user do |form| %>
         <%# replace url: '/' with model: Comment.new %>
+    <% @group.users.each do |user| %>
+    <% if current_user == user %>
+      <%= form_for([user, user.messages.new]) do |form| %>
+
         <%= form.label :content, "Message to send", class: "sr-only col control-label" %>
-        <%= form.text_field :content, placeholder: "message content", class: "col-10" %><!--
-        --><%= form.submit "Send", class: "col-2 btn btn-secondary" %>
+        <%= form.text_field :content, placeholder: "message content", class: "col-10" %>
+
+        <%= form.hidden_field :group_id, value: @group.id %>
+
+        <%= form.submit "Send", class: "col-2 btn btn-secondary" %>
       <% end %>
+    <% end %>
+    <% end %>
     </div>
   </div>
 </div>

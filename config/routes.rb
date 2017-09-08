@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'payments/new'
+
+  get 'payments/create'
+
+  get 'payments/edit'
+
   root to: 'static_pages#about'
   get '/about', to: 'static_pages#about', as: :about
   get '/contact', to: 'static_pages#contact', as: :contact
@@ -8,8 +14,16 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: :logout
   get '/auth/:provider/callback', to: 'sessions#create', as: :oauth_callback
 
-  resources :users, param: :id
-  resources :groups, param: :id
+  resources :users, param: :id do
+    resources :payments
+    resources :messages
+  end
+
+  resources :groups, param: :id do
+    resources :payments
+    resources :messages
+  end
+
   resources :sessions, param: :id, only: [:create, :destroy, :new] # :new is debug
 
 end
