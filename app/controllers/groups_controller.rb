@@ -1,8 +1,9 @@
 class GroupsController < ApplicationController
   include SessionsHelper
+  include ApplicationHelper
 
   def show
-    if current_user
+    if current_user && current_user.groups.ids. include?(params[:id].to_i)
       @group = current_user.groups.find(params[:id])
     else
       redirect_to :root

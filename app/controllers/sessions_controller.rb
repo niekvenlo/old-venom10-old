@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
       @user = User.new(name: user_name, email: user_email, provider_column => provider_uid)
       if @user.save && create_cookies_and_session
         redirect_to @user, success: "Account created succesfully"
+        UserMailer.welcome_email(@user).deliver_later
       else
         redirect_to :root, warning: "We were unable to create an account"
       end

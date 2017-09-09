@@ -2,6 +2,9 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = Payment.new(payment_params)
+    unless helpers.current_user.groups.ids.include? payment_params[:group_id].to_i
+      raise SanityError.new("User is not a member of group")
+    end
     # render json: payment_params
     if @payment.save
       render json: @payment
