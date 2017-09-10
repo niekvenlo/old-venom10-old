@@ -41,6 +41,8 @@ gem 'bootstrap', '~> 4.0.0.beta'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'webpacker', '~> 3'
+
 group :production do
 end
 
